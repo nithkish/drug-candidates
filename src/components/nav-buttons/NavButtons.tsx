@@ -1,4 +1,4 @@
-import { HomeIcon, Heart } from "lucide-react";
+import { HomeIcon, Bookmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ToggleTheme from "@/components/toggle-theme/ToggleTheme";
@@ -26,9 +26,9 @@ async function NavButtons() {
       href: "/",
     },
     {
-      name: "Favourites",
-      icon: <Heart className="w-4 h-4" />,
-      href: "/favourites",
+      name: "Bookmarks",
+      icon: <Bookmark className="w-4 h-4" />,
+      href: "/bookmarks",
     },
   ];
 

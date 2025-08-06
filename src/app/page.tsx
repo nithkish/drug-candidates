@@ -1,13 +1,8 @@
-import { Button } from "@/components/ui/button";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
-import Image from "next/image";
+import DrugsList from "@/sections/drugs-list/DrugsList";
+import LandingPage from "@/sections/landing-page/LandingPage";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function Home() {
-  return <div></div>;
+export default async function Home() {
+  const user = await currentUser();
+  return user ? <DrugsList /> : <LandingPage />;
 }
