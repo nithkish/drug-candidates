@@ -1,9 +1,12 @@
-import { HomeIcon, Bookmark } from "lucide-react";
+"use client";
+import { HomeIcon, Flag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ToggleTheme from "@/components/toggle-theme/ToggleTheme";
 import { currentUser } from "@clerk/nextjs/server";
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignInButton, useAuth, UserButton } from "@clerk/nextjs";
+import { useTheme } from "next-themes";
+import { dark } from "@clerk/themes";
 
 /**
  * @description A functional React component that renders a set of navigation buttons and a theme toggle button.
@@ -12,8 +15,9 @@ import { SignInButton, UserButton } from "@clerk/nextjs";
  * @returns {JSX.Element} A JSX element containing navigation buttons and a theme toggle button.
  *
  */
-async function NavButtons() {
-  const user = await currentUser();
+function NavButtons() {
+  const { isSignedIn } = useAuth();
+  const { resolvedTheme } = useTheme();
 
   // Define an array of navigation buttons with their properties
   // This array can be easily extended to add more buttons in the future
@@ -27,7 +31,7 @@ async function NavButtons() {
     },
     {
       name: "Bookmarks",
-      icon: <Bookmark className="w-4 h-4" />,
+      icon: <Flag className="w-4 h-4" />,
       href: "/bookmarks",
     },
   ];
@@ -49,13 +53,22 @@ async function NavButtons() {
 
   return (
     <div className="flex items-center space-x-4">
-      {user ? (
+      {isSignedIn ? (
         <>
           {getButtonList()}
-          <UserButton />
+          <UserButton
+            appearance={{
+              baseTheme: resolvedTheme === "dark" ? dark : undefined,
+            }}
+          />
         </>
       ) : (
-        <SignInButton mode="modal">
+        <SignInButton
+          mode="modal"
+          appearance={{
+            baseTheme: resolvedTheme === "dark" ? dark : undefined,
+          }}
+        >
           <Button className=" bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-slate-900 dark:hover:bg-slate-800">
             Sign in
           </Button>

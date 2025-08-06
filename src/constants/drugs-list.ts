@@ -11,6 +11,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Bayer Pharmaceuticals",
     createdAt: "2024-01-15T10:30:00Z",
     updatedAt: "2024-01-15T10:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-10-01T09:00:00Z",
+        note: "Initial development phase",
+      },
+      {
+        status: "pending",
+        date: "2023-12-01T10:00:00Z",
+        note: "Submitted for regulatory approval",
+      },
+      {
+        status: "approved",
+        date: "2024-01-15T10:30:00Z",
+        note: "Approved by FDA",
+      },
+    ],
   },
   {
     id: "2",
@@ -22,6 +39,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Pfizer Inc.",
     createdAt: "2024-01-16T14:20:00Z",
     updatedAt: "2024-01-16T14:20:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-09-15T08:00:00Z",
+        note: "Research and development",
+      },
+      {
+        status: "pending",
+        date: "2023-11-10T12:00:00Z",
+        note: "Under regulatory review",
+      },
+      {
+        status: "approved",
+        date: "2024-01-16T14:20:00Z",
+        note: "Approved for market",
+      },
+    ],
   },
   {
     id: "3",
@@ -33,6 +67,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Merck & Co.",
     createdAt: "2024-01-17T09:15:00Z",
     updatedAt: "2024-01-17T09:15:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-08-20T11:00:00Z",
+        note: "Clinical trials phase",
+      },
+      {
+        status: "pending",
+        date: "2023-12-15T14:30:00Z",
+        note: "Safety review completed",
+      },
+      {
+        status: "approved",
+        date: "2024-01-17T09:15:00Z",
+        note: "Approved for hypertension treatment",
+      },
+    ],
   },
   {
     id: "4",
@@ -44,6 +95,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Bristol-Myers Squibb",
     createdAt: "2024-01-18T11:45:00Z",
     updatedAt: "2024-01-18T11:45:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-07-10T09:15:00Z",
+        note: "Diabetes research phase",
+      },
+      {
+        status: "pending",
+        date: "2023-11-20T16:45:00Z",
+        note: "Efficacy studies completed",
+      },
+      {
+        status: "approved",
+        date: "2024-01-18T11:45:00Z",
+        note: "Approved for diabetes management",
+      },
+    ],
   },
   {
     id: "5",
@@ -55,6 +123,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Pfizer Inc.",
     createdAt: "2024-01-19T16:30:00Z",
     updatedAt: "2024-01-19T16:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-06-05T13:20:00Z",
+        note: "Cholesterol research",
+      },
+      {
+        status: "pending",
+        date: "2023-10-25T10:15:00Z",
+        note: "Cardiovascular safety review",
+      },
+      {
+        status: "approved",
+        date: "2024-01-19T16:30:00Z",
+        note: "Approved for cholesterol management",
+      },
+    ],
   },
   {
     id: "6",
@@ -66,6 +151,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "AstraZeneca",
     createdAt: "2024-01-20T13:20:00Z",
     updatedAt: "2024-01-20T13:20:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-05-12T08:30:00Z",
+        note: "Gastric acid research",
+      },
+      {
+        status: "pending",
+        date: "2023-09-30T15:45:00Z",
+        note: "Gastrointestinal safety review",
+      },
+      {
+        status: "approved",
+        date: "2024-01-20T13:20:00Z",
+        note: "Approved for acid reflux treatment",
+      },
+    ],
   },
   {
     id: "7",
@@ -77,6 +179,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Pfizer Inc.",
     createdAt: "2024-01-21T08:45:00Z",
     updatedAt: "2024-01-21T08:45:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-04-18T12:00:00Z",
+        note: "Vasodilation research",
+      },
+      {
+        status: "pending",
+        date: "2023-08-15T09:30:00Z",
+        note: "Blood pressure studies",
+      },
+      {
+        status: "approved",
+        date: "2024-01-21T08:45:00Z",
+        note: "Approved for hypertension",
+      },
+    ],
   },
   {
     id: "8",
@@ -88,6 +207,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Pfizer Inc.",
     createdAt: "2024-01-22T12:10:00Z",
     updatedAt: "2024-01-22T12:10:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-03-25T14:15:00Z",
+        note: "Psychiatric research phase",
+      },
+      {
+        status: "pending",
+        date: "2023-07-20T11:00:00Z",
+        note: "Mental health safety review",
+      },
+      {
+        status: "approved",
+        date: "2024-01-22T12:10:00Z",
+        note: "Approved for depression treatment",
+      },
+    ],
   },
   {
     id: "9",
@@ -99,6 +235,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "GlaxoSmithKline",
     createdAt: "2024-01-23T15:25:00Z",
     updatedAt: "2024-01-23T15:25:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-02-28T10:45:00Z",
+        note: "Respiratory research",
+      },
+      {
+        status: "pending",
+        date: "2023-06-10T16:20:00Z",
+        note: "Lung function studies",
+      },
+      {
+        status: "approved",
+        date: "2024-01-23T15:25:00Z",
+        note: "Approved for asthma treatment",
+      },
+    ],
   },
   {
     id: "10",
@@ -110,6 +263,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Merck & Co.",
     createdAt: "2024-01-24T10:50:00Z",
     updatedAt: "2024-01-24T10:50:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-01-15T09:30:00Z",
+        note: "Diuretic research",
+      },
+      {
+        status: "pending",
+        date: "2023-05-05T13:45:00Z",
+        note: "Kidney function review",
+      },
+      {
+        status: "approved",
+        date: "2024-01-24T10:50:00Z",
+        note: "Approved for hypertension",
+      },
+    ],
   },
   {
     id: "11",
@@ -121,6 +291,18 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Takeda Pharmaceutical",
     createdAt: "2024-02-01T09:30:00Z",
     updatedAt: "2024-02-01T09:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-12-01T08:00:00Z",
+        note: "ARB development phase",
+      },
+      {
+        status: "pending",
+        date: "2024-02-01T09:30:00Z",
+        note: "Under regulatory review",
+      },
+    ],
   },
   {
     id: "12",
@@ -132,6 +314,18 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Boehringer Ingelheim",
     createdAt: "2024-02-02T14:15:00Z",
     updatedAt: "2024-02-02T14:15:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-11-15T11:20:00Z",
+        note: "SGLT2 research",
+      },
+      {
+        status: "pending",
+        date: "2024-02-02T14:15:00Z",
+        note: "Diabetes and heart failure review",
+      },
+    ],
   },
   {
     id: "13",
@@ -143,6 +337,13 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Bayer Pharmaceuticals",
     createdAt: "2024-02-03T11:20:00Z",
     updatedAt: "2024-02-03T11:20:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2024-02-03T11:20:00Z",
+        note: "Phase III clinical trials",
+      },
+    ],
   },
   {
     id: "14",
@@ -154,6 +355,13 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "AstraZeneca",
     createdAt: "2024-02-04T16:40:00Z",
     updatedAt: "2024-02-04T16:40:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2024-02-04T16:40:00Z",
+        note: "Chronic kidney disease trials",
+      },
+    ],
   },
   {
     id: "15",
@@ -165,6 +373,13 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Pfizer Inc.",
     createdAt: "2024-02-05T13:55:00Z",
     updatedAt: "2024-02-05T13:55:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2024-02-05T13:55:00Z",
+        note: "Ulcerative colitis trials",
+      },
+    ],
   },
   {
     id: "16",
@@ -176,6 +391,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Regeneron Pharmaceuticals",
     createdAt: "2024-01-10T08:20:00Z",
     updatedAt: "2024-01-25T17:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-08-01T10:00:00Z",
+        note: "Asthma research phase",
+      },
+      {
+        status: "pending",
+        date: "2023-12-15T14:30:00Z",
+        note: "Safety review initiated",
+      },
+      {
+        status: "rejected",
+        date: "2024-01-25T17:30:00Z",
+        note: "Rejected due to safety concerns",
+      },
+    ],
   },
   {
     id: "17",
@@ -187,6 +419,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Pfizer Inc.",
     createdAt: "2024-01-12T10:45:00Z",
     updatedAt: "2024-01-28T14:15:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-09-10T12:00:00Z",
+        note: "Smoking cessation research",
+      },
+      {
+        status: "pending",
+        date: "2023-12-20T09:15:00Z",
+        note: "Psychiatric safety review",
+      },
+      {
+        status: "rejected",
+        date: "2024-01-28T14:15:00Z",
+        note: "Rejected due to psychiatric side effects",
+      },
+    ],
   },
   {
     id: "18",
@@ -198,6 +447,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Merck & Co.",
     createdAt: "2023-06-15T12:00:00Z",
     updatedAt: "2023-12-01T09:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-03-01T08:30:00Z",
+        note: "COX-2 research",
+      },
+      {
+        status: "pending",
+        date: "2023-08-15T11:45:00Z",
+        note: "Cardiovascular safety review",
+      },
+      {
+        status: "rejected",
+        date: "2023-12-01T09:30:00Z",
+        note: "Rejected due to cardiovascular risks",
+      },
+    ],
   },
   {
     id: "19",
@@ -209,6 +475,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Merck & Co.",
     createdAt: "2023-05-20T15:30:00Z",
     updatedAt: "2023-11-15T11:45:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-02-10T13:20:00Z",
+        note: "NSAID development",
+      },
+      {
+        status: "pending",
+        date: "2023-07-01T10:15:00Z",
+        note: "Safety monitoring",
+      },
+      {
+        status: "rejected",
+        date: "2023-11-15T11:45:00Z",
+        note: "Withdrawn due to cardiovascular risks",
+      },
+    ],
   },
   {
     id: "20",
@@ -220,6 +503,23 @@ export const mockDrugsData: DrugType[] = [
     manufacturer: "Celgene Corporation",
     createdAt: "2023-04-10T09:15:00Z",
     updatedAt: "2023-10-20T16:20:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-01-05T09:00:00Z",
+        note: "Sedative research",
+      },
+      {
+        status: "pending",
+        date: "2023-06-20T14:30:00Z",
+        note: "Safety evaluation",
+      },
+      {
+        status: "rejected",
+        date: "2023-10-20T16:20:00Z",
+        note: "Rejected due to birth defects",
+      },
+    ],
   },
 ];
 
