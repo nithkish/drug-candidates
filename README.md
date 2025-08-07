@@ -25,10 +25,9 @@ Below is a comprehensive overview of the project, including the file structure, 
    - [Dependencies](#dependencies)
    - [Dev Dependencies](#dev-dependencies)
 5. [Features](#features)
-6. [Functional and Technical Requirements](#functional-and-technical-requirements)
-   - [Functional requirements Accomplished](#functional-requirements-accomplished)
-   - [Technical requirements Accomplished](#technical-requirements-accomplished)
-7. [Future improvements](#future-improvements)
+6. [Functional requirements Accomplished](#functional-requirements-accomplished)
+7. [Technical requirements Accomplished](#technical-requirements-accomplished)
+8. [Future improvements](#future-improvements)
 
 ---
 
