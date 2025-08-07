@@ -4,7 +4,6 @@ import { FilterButton } from "@/components/filter-button/FilterButton";
 import ListSkeleton from "@/components/list-skeleton/ListSkeleton";
 import PaginationComponent from "@/components/pagination/Pagination";
 import { SearchBar } from "@/components/search-bar/SearchBar";
-// import PokemonCard from "@/components/pokemon-card/PokemonCard";
 import { useGlobalContext } from "@/providers/GlobalContextProvider";
 import { filterOptions } from "@/constants/filter";
 import DrugCard from "@/components/drug-card/DrugCard";
@@ -14,24 +13,27 @@ import { useDrugData } from "@/hooks/useDrugData";
 import { NoResultsScreen } from "@/components/error-screen/DefaultErrorScreen";
 
 /**
- * PokemonList Section Component
+ * DrugsList Section Component
  *
- * This component is responsible for rendering a list of Pokémon cards.
- * It fetches the Pokémon data from the global context and displays it
- * in a responsive grid layout. Additionally, it handles loading and error
- * states and includes pagination functionality.
+ * Displays a searchable, filterable, and paginated list of drug cards.
+ * Handles loading, error states when used with real API and provides accessible controls for search and filtering.
+ *
+ * Accessibility:
+ * - The main section uses role="region" and aria-label for screen readers.
+ * - The drug list uses a <ul> with each card as a <li> for semantic grouping.
+ * - Search and filter controls have accessible labels.
+ * - Pagination is rendered only when needed.
  *
  * @component
- *
- * @returns {JSX.Element} The rendered Pokémon list component.
+ * @returns {JSX.Element} The rendered drug list component.
  *
  * @remarks
- * - Uses `useGlobalContext` to access the Pokémon data, loading state, error state, and maximum page count.
+ * - Uses `useGlobalContext` to access filter state and setters.
+ * - Uses `useDrugData` to get paginated and filtered drug data.
  * - Displays a skeleton loader (`ListSkeleton`) while data is loading.
- * - Shows an error screen (`ErrorScreen`) if there is an error fetching data.
- * - Renders a grid of Pokémon cards (`PokemonCard`) when data is successfully fetched.
- * - Includes a pagination component (`PaginationComponent`) if `maxPage` is defined.
- *
+ * - Shows an error screen (`ErrorDrugsScreen`) if there is an error fetching data.
+ * - Renders a grid of drug cards (`DrugCard`) when data is successfully fetched.
+ * - Includes a pagination component (`PaginationComponent`) if needed.
  */
 export default function DrugsList() {
   const { filter, setFilter, setSearchValue, setCurrentPage } =
@@ -40,9 +42,11 @@ export default function DrugsList() {
     itemsPerPage: ITEMS_PER_PAGE,
   });
 
-  //   if (loading) return <ListSkeleton />;
+  //  In case of API calls the below code will be used.
+  //  Commenting as we are using mockData
 
-  //   if (error) return <ErrorScreen />;
+  //   if (loading) return <ListSkeleton />;
+  //   if (error) return <ErrorDrugsScreen />;
 
   const handleFilterChange = (filters: DrugStatusType[]) => {
     setFilter(filters);
@@ -50,38 +54,47 @@ export default function DrugsList() {
   };
 
   return (
-    <>
-      <section className=" max-w-7xl mx-auto">
-        <div className="flex lg:max-w-6xl lg:m-auto md:max-w-4xl  md:m-auto mx-5 py-5 gap-2">
-          <SearchBar
-            onSearch={(value: string) => {
-              setSearchValue(value);
-              setCurrentPage(1);
-            }}
-            containerClassName="flex-1"
-            placeholder="Search by Name.."
-          />
-          <FilterButton
-            options={filterOptions}
-            selectedFilters={filter}
-            onFilterChange={handleFilterChange}
-            placeholder="Status"
-          />
-        </div>
+    <section
+      className="max-w-7xl mx-auto"
+      role="region"
+      aria-label="Drug candidates list"
+    >
+      <div className="flex lg:max-w-6xl lg:m-auto md:max-w-4xl md:m-auto mx-5 py-5 gap-2">
+        <SearchBar
+          onSearch={(value: string) => {
+            setSearchValue(value);
+            setCurrentPage(1);
+          }}
+          containerClassName="flex-1"
+          placeholder="Search by Name.."
+          aria-label="Search drugs by name"
+        />
+        <FilterButton
+          options={filterOptions}
+          selectedFilters={filter}
+          onFilterChange={handleFilterChange}
+          placeholder="Status"
+          aria-label="Filter drugs by status"
+        />
+      </div>
 
-        {paginatedDrugs.length > 0 ? (
-          <div className=" px-5 pb-3 md:p-3 md:px-16 md:py-2 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {paginatedDrugs.map((item) => (
-              <DrugCard key={item.id} drug={item} />
-            ))}
-          </div>
-        ) : (
-          <NoResultsScreen />
-        )}
-        {paginatedDrugs.length > 0 && filteredDrugs.length > ITEMS_PER_PAGE && (
-          <PaginationComponent pageCount={totalPages} />
-        )}
-      </section>
-    </>
+      {paginatedDrugs.length > 0 ? (
+        <ul
+          className="px-5 pb-3 md:p-3 md:px-16 md:py-2 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          aria-label="Drug candidates"
+        >
+          {paginatedDrugs.map((item) => (
+            <li key={item.id}>
+              <DrugCard drug={item} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <NoResultsScreen />
+      )}
+      {paginatedDrugs.length > 0 && filteredDrugs.length > ITEMS_PER_PAGE && (
+        <PaginationComponent pageCount={totalPages} />
+      )}
+    </section>
   );
 }

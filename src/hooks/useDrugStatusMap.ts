@@ -1,16 +1,17 @@
 import { useCallback, useMemo } from "react";
-import {
-  CheckCircle,
-  Clock,
-  XCircle,
-  MoreHorizontal,
-  Check,
-  X,
-  Ellipsis,
-} from "lucide-react";
+import { Clock, Check, X, Ellipsis } from "lucide-react";
 import React from "react";
 import { DrugStatusType } from "@/types/drug";
 
+/**
+ * DrugStatusTypeConfig
+ *
+ * Interface describing the configuration for a drug status type.
+ * - label: Human-readable status label.
+ * - bgColor: Tailwind CSS background color class for the status.
+ * - icon: React node representing the status icon.
+ * - description: Description of the status.
+ */
 export interface DrugStatusTypeConfig {
   label: string;
   bgColor: string;
@@ -18,6 +19,26 @@ export interface DrugStatusTypeConfig {
   description: string;
 }
 
+/**
+ * useDrugStatusTypeMap
+ *
+ * Custom React hook that provides a mapping from drug status types to their display configuration.
+ * Useful for rendering consistent status labels, colors, and icons throughout the UI.
+ *
+ * Features:
+ * - Memoizes the status map for performance.
+ * - Provides a helper to get the config for a specific status.
+ *
+ * @returns {Object} {
+ *   drugStatusMap: Record<DrugStatusType, DrugStatusTypeConfig>;
+ *   getDrugStatusConfig: (status: DrugStatusType) => DrugStatusTypeConfig;
+ * }
+ *
+ * Example usage:
+ *   const { getDrugStatusConfig } = useDrugStatusTypeMap();
+ *   const config = getDrugStatusConfig("approved");
+ *   // config.label, config.bgColor, config.icon, config.description
+ */
 interface UseDrugStatusTypeMapReturn {
   drugStatusMap: Record<DrugStatusType, DrugStatusTypeConfig>;
   getDrugStatusConfig: (status: DrugStatusType) => DrugStatusTypeConfig;

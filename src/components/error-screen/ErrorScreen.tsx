@@ -4,6 +4,26 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ErrorVariantType } from "@/types/error";
 
+/**
+ * ErrorScreen Component
+ *
+ * Displays a user-friendly error, empty, or no-results state with an icon, title, description, and optional action button.
+ * Used to communicate various states such as errors, empty data, or no search results.
+ *
+ * Props:
+ * @param {string} [title] - Optional custom title for the error screen.
+ * @param {string} [description] - Optional custom description for the error screen.
+ * @param {React.ReactNode} [icon] - Optional custom icon to display.
+ * @param {object} [action] - Optional action button configuration.
+ * @param {string} action.label - The label for the action button.
+ * @param {() => void} action.onClick - The click handler for the action button.
+ * @param {React.ReactNode} [action.icon] - Optional icon for the action button.
+ * @param {string} [className] - Additional classes for the root container.
+ * @param {ErrorVariantType} [variant] - The type of error state to display ("empty", "error", "no-results", "no-bookmark").
+ *
+ * Usage:
+ * <ErrorScreen variant="error" action={{ label: "Retry", onClick: handleRetry }} />
+ */
 export interface ErrorScreenProps {
   // Content
   title?: string;

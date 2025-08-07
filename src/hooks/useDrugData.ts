@@ -3,10 +3,31 @@ import { DrugType } from "@/types/drug";
 import { mockDrugsData } from "@/constants/drugs-list";
 import { useGlobalContext } from "@/providers/GlobalContextProvider";
 
+/**
+ * useDrugData
+ *
+ * React hook for filtering, searching, and paginating drug candidate data.
+ * Integrates with the global context to access search value, status filters, and current page.
+ *
+ * Features:
+ * - Filters drugs by search term (case-insensitive, matches name).
+ * - Filters drugs by selected status filters.
+ * - Returns paginated results for the current page.
+ *
+ * @param {Object} [props]
+ * @param {number} [props.itemsPerPage] - Number of items to show per page.
+ *
+ * @returns {Object} An object containing:
+ *   - filteredDrugs: DrugType[] — All drugs matching the search and filters.
+ *   - paginatedDrugs: DrugType[] — Drugs for the current page.
+ *   - totalPages: number — Total number of pages.
+ *   - totalItems: number — Total number of filtered drugs.
+ *
+ * @example
+ * const { paginatedDrugs, totalPages } = useDrugData({ itemsPerPage: 10 });
+ */
 interface UseDrugDataProps {
   itemsPerPage?: number;
-  initialSearchTerm?: string;
-  initialStatusFilters?: string[];
 }
 
 interface UseDrugDataReturn {
@@ -20,7 +41,7 @@ interface UseDrugDataReturn {
 }
 
 export const useDrugData = ({
-  itemsPerPage = 12,
+  itemsPerPage = 9,
 }: UseDrugDataProps = {}): UseDrugDataReturn => {
   // getting states from GlobalContext
   const { searchValue, filter, currentPage } = useGlobalContext();

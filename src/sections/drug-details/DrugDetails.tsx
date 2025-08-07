@@ -1,76 +1,54 @@
 "use client";
 import React from "react";
 import { DrugType } from "@/types/drug";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import {
-  Calendar,
-  Building,
-  Tag,
-  FileText,
-  AlertCircle,
-  Bookmark,
-  Flag,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useDrugStatusTypeMap } from "@/hooks/useDrugStatusMap";
-import { useBookMarksData } from "@/hooks/useBookMarksData";
 import { EmptyDrugsScreen } from "@/components/error-screen/DefaultErrorScreen";
-import { Button } from "@/components/ui/button";
 import BasicInfoCard from "./components/BasicInfoCard";
 import StatusCard from "./components/StatusCard";
-import { formatDate } from "@/helpers/date";
 import StatusHistoryCard from "./components/StatusHistoryCard";
 import AdditionalInfoCard from "./components/AdditionalInfoCard";
+import HeaderSection from "./components/HeaderSection";
 
+/**
+ * DrugDetails
+ *
+ * Displays detailed information about a drug candidate, including:
+ * - Name and description (HeaderSection)
+ * - Basic info (ID, category, manufacturer)
+ * - Current status and timeline
+ * - Status history (chronological)
+ * - Additional info (category, manufacturer, ID, creation date)
+ *
+ * Accessibility:
+ * - Renders an accessible empty state if no drug is provided.
+ * - Uses semantic and accessible subcomponents for all sections.
+ * - Each section uses appropriate ARIA roles, headings, and associations.
+ *
+ * Props:
+ * @param {DrugType} [drug] - The drug candidate object to display details for.
+ *
+ * @returns {JSX.Element} The drug details UI or an empty state if no drug is provided.
+ */
 interface DrugDetailsProps {
   drug?: DrugType;
 }
 
 export const DrugDetails = ({ drug }: DrugDetailsProps) => {
-  const { isBookmarked, toggleBookmark } = useBookMarksData();
   const { getDrugStatusConfig } = useDrugStatusTypeMap();
 
   if (!drug) return <EmptyDrugsScreen />;
 
-  const showBookmarked = isBookmarked(drug.id);
   const statusConfig = getDrugStatusConfig(drug.status);
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       {/* Header Section */}
-      <div className="space-y-4">
-        <div className="flex items-start justify-between">
-          <div className="space-y-2">
-            <div className="flex justify-between pb-5">
-              <h1 className="text-3xl font-bold text-foreground">
-                {drug.name}
-              </h1>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant={"outline"}
-                  className={cn(
-                    "text-sm border-blue-500 text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-600",
-                    showBookmarked && "dark:bg-slate-800 bg-blue-50"
-                  )}
-                  onClick={() => toggleBookmark(drug.id)}
-                >
-                  <Flag
-                    className={cn(
-                      showBookmarked && "text-red-500 fill-current"
-                    )}
-                  />
-                  <span className="hidden lg:inline">
-                    {showBookmarked ? "Bookmarked" : "Bookmark"}
-                  </span>
-                </Button>
-              </div>
-            </div>
-            <p className="text-lg text-muted-foreground">{drug.description}</p>
-          </div>
-        </div>
-      </div>
+      <HeaderSection
+        id={drug.id}
+        name={drug.name}
+        description={drug.description}
+      />
 
       <Separator />
 

@@ -1,7 +1,16 @@
 import { Filter, RefreshCw } from "lucide-react";
 import { ErrorScreen } from "./ErrorScreen";
 
-// Predefined error screen components for common use cases
+/**
+ * EmptyDrugsScreen
+ *
+ * Displays an accessible empty state when no drugs are available.
+ * Includes an optional refresh action button.
+ *
+ * Props:
+ * @param {() => void} [onRefresh] - Optional callback for the refresh action.
+ * @param {string} [className] - Additional classes for the container.
+ */
 export const EmptyDrugsScreen = ({
   onRefresh,
   className,
@@ -21,9 +30,20 @@ export const EmptyDrugsScreen = ({
         : undefined
     }
     className={className}
+    aria-label="No drugs found. You can refresh the list."
   />
 );
 
+/**
+ * NoResultsScreen
+ *
+ * Displays an accessible state when no search results are found.
+ * Includes an optional clear filters action button.
+ *
+ * Props:
+ * @param {() => void} [onClear] - Optional callback for the clear filters action.
+ * @param {string} [className] - Additional classes for the container.
+ */
 export const NoResultsScreen = ({
   onClear,
   className,
@@ -43,9 +63,20 @@ export const NoResultsScreen = ({
         : undefined
     }
     className={className}
+    aria-label="No results found. You can clear filters."
   />
 );
 
+/**
+ * ErrorDrugsScreen
+ *
+ * Displays an accessible error state when loading drugs fails.
+ * Includes an optional retry action button.
+ *
+ * Props:
+ * @param {() => void} [onRetry] - Optional callback for the retry action.
+ * @param {string} [className] - Additional classes for the container.
+ */
 export const ErrorDrugsScreen = ({
   onRetry,
   className,
@@ -65,9 +96,22 @@ export const ErrorDrugsScreen = ({
         : undefined
     }
     className={className}
+    aria-label="Error loading drugs. You can try again."
   />
 );
 
+/**
+ * EmptyBookmarksScreen
+ *
+ * Displays an accessible state when no bookmarks are present.
+ *
+ * Props:
+ * @param {string} [className] - Additional classes for the container.
+ */
 export const EmptyBookmarksScreen = ({ className }: { className?: string }) => (
-  <ErrorScreen variant="no-bookmark" className={className} />
+  <ErrorScreen
+    variant="no-bookmark"
+    className={className}
+    aria-label="No bookmarked drugs."
+  />
 );

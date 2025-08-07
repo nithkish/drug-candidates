@@ -3,36 +3,42 @@ import { HomeIcon, Flag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ToggleTheme from "@/components/toggle-theme/ToggleTheme";
-import { currentUser } from "@clerk/nextjs/server";
 import { SignInButton, useAuth, UserButton } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import { dark } from "@clerk/themes";
 
 /**
- * @description A functional React component that renders a set of navigation buttons and a theme toggle button.
- * The navigation buttons are dynamically generated from a predefined array of button configurations.
+ * NavButtons Component
  *
- * @returns {JSX.Element} A JSX element containing navigation buttons and a theme toggle button.
+ * Renders a set of accessible navigation buttons, a theme toggle, and authentication controls.
  *
+ * Accessibility:
+ * - Navigation buttons are grouped in a <nav> with aria-label for screen readers.
+ * - Each navigation button uses an accessible label via aria-label.
+ * - Icons are marked aria-hidden.
+ * - The theme toggle and sign-in/user buttons are included in the navigation region.
+ *
+ * @returns {JSX.Element} Navigation controls for the application.
  */
 function NavButtons() {
   const { isSignedIn } = useAuth();
   const { resolvedTheme } = useTheme();
 
-  // Define an array of navigation buttons with their properties
-  // This array can be easily extended to add more buttons in the future
-  // Each button has a name, icon, and href (link)
-  // Can be moved to a central config file for scalability
+  // Array of navigation buttons with their properties
   const navButtons = [
     {
       name: "Home",
-      icon: <HomeIcon className="w-4 h-4" />,
+      icon: (
+        <HomeIcon className="w-4 h-4" aria-hidden="true" focusable="false" />
+      ),
       href: "/",
+      ariaLabel: "Go to Home page",
     },
     {
       name: "Bookmarks",
-      icon: <Flag className="w-4 h-4" />,
+      icon: <Flag className="w-4 h-4" aria-hidden="true" focusable="false" />,
       href: "/bookmarks",
+      ariaLabel: "Go to Bookmarks page",
     },
   ];
 
@@ -43,6 +49,7 @@ function NavButtons() {
         key={button.name}
         className="flex items-center gap-2 bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-slate-900 dark:hover:bg-slate-800"
         asChild
+        aria-label={button.ariaLabel}
       >
         <Link href={button.href}>
           {button.icon}
@@ -52,7 +59,11 @@ function NavButtons() {
     ));
 
   return (
-    <div className="flex items-center space-x-4">
+    <nav
+      className="flex items-center space-x-4"
+      aria-label="Main navigation"
+      role="navigation"
+    >
       {isSignedIn ? (
         <>
           {getButtonList()}
@@ -60,6 +71,7 @@ function NavButtons() {
             appearance={{
               baseTheme: resolvedTheme === "dark" ? dark : undefined,
             }}
+            aria-label="User menu"
           />
         </>
       ) : (
@@ -69,13 +81,16 @@ function NavButtons() {
             baseTheme: resolvedTheme === "dark" ? dark : undefined,
           }}
         >
-          <Button className=" bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-slate-900 dark:hover:bg-slate-800">
+          <Button
+            className="bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-slate-900 dark:hover:bg-slate-800"
+            aria-label="Sign in"
+          >
             Sign in
           </Button>
         </SignInButton>
       )}
       <ToggleTheme />
-    </div>
+    </nav>
   );
 }
 export default NavButtons;

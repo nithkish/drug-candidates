@@ -9,6 +9,21 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
+/**
+ * CardWrapper Component
+ *
+ * A flexible wrapper for displaying content in a card layout.
+ * Supports optional title, description, actions, and footer.
+ *
+ * Props:
+ * @param {React.ReactNode} title - Optional card title, rendered at the top.
+ * @param {React.ReactNode} description - Optional card description, shown below the title.
+ * @param {React.ReactNode} actions - Optional actions (e.g., buttons) in the header.
+ * @param {React.ReactNode} children - Main card content.
+ * @param {string} className - Additional classes for the card.
+ * @param {string} contentClassName - Additional classes for the content section.
+ * @param {React.ReactNode} footer - Optional footer content.
+ */
 interface CardWrapperProps {
   title?: React.ReactNode;
   description?: React.ReactNode;

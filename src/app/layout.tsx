@@ -22,6 +22,23 @@ export const metadata: Metadata = {
   description: "App to discover drug candidates.",
 };
 
+/**
+ * RootLayout
+ *
+ * The main layout component for the Drug Discovery application.
+ * Sets up global providers, fonts, theming, authentication, and navigation.
+ *
+ * Accessibility:
+ * - Sets the HTML language to English.
+ * - Uses antialiased fonts for better readability.
+ * - Wraps the app in providers for theme, authentication, and global state.
+ * - Ensures navigation is present on all pages.
+ *
+ * @param {object} props
+ * @param {React.ReactNode} props.children - The page content to render inside the layout.
+ *
+ * @returns {JSX.Element} The root layout with global providers and navigation.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

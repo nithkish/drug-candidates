@@ -14,24 +14,30 @@ const GlobalContext = createContext<GlobalContextType>({
 });
 
 /**
- * GlobalContextProvider is a React context provider component that supplies global state
- * and functions to its child components.
+ * GlobalContextProvider
  *
- * @param {Object} props - The props object.
+ * React context provider component that supplies global state and setter functions
+ * for pagination, search, and filter functionality across the application.
+ *
+ * Context values provided:
+ * - currentPage: number — The current page number for paginated data.
+ * - setCurrentPage: (page: number) => void — Function to update the current page.
+ * - searchValue: string — The current search input value.
+ * - setSearchValue: (value: string) => void — Function to update the search value.
+ * - filter: DrugStatusType[] — Array of selected drug status filters.
+ * - setFilter: (filters: DrugStatusType[]) => void — Function to update the filters.
+ *
+ * @param {object} props
  * @param {ReactNode} props.children - The child components that will have access to the global context.
- *
  * @returns {JSX.Element} A context provider wrapping the children components.
  *
- * @context
- * - `currentPage` (number): The current page number for paginated data.
- * - `setCurrentPage` (React.Dispatch<React.SetStateAction<number>>): Function to update the current page.
  */
 export const GlobalContextProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
-  // state to manage the current page value
+  // State to manage the current page value
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState<string>("");
   const [filter, setFilter] = useState<DrugStatusType[]>([]);
@@ -52,7 +58,16 @@ export const GlobalContextProvider = ({
   );
 };
 
-// Custom hook to use the Global context
+/**
+ * useGlobalContext
+ *
+ * Custom hook to access the global context for pagination, search, and filter state.
+ *
+ * @returns {GlobalContextType} The global context value.
+ *
+ * @example
+ * const { currentPage, setCurrentPage } = useGlobalContext();
+ */
 export const useGlobalContext = () => {
   return useContext(GlobalContext);
 };

@@ -1,5 +1,25 @@
 import { DrugType } from "@/types/drug";
 
+/**
+ * mockDrugsData
+ *
+ * An array of mock drug candidate data used for development and testing.
+ * Each drug object contains detailed information including:
+ * - id: Unique identifier for the drug.
+ * - name: Drug name.
+ * - status: Current status ("approved", "pending", "in_dev", "rejected").
+ * - description: Brief description of the drug and its use.
+ * - category: Drug category or class.
+ * - manufacturer: Name of the manufacturer.
+ * - createdAt: ISO date string for when the drug was created.
+ * - updatedAt: ISO date string for when the drug was last updated.
+ * - statusHistory: Array of status changes with date and notes.
+ *
+ * Example usage:
+ *   const drugs = mockDrugsData.filter(drug => drug.status === "approved");
+ *
+ * This mock data is used in place of a real API for local development and UI prototyping.
+ */
 export const mockDrugsData: DrugType[] = [
   {
     id: "1",
@@ -522,22 +542,3 @@ export const mockDrugsData: DrugType[] = [
     ],
   },
 ];
-
-// Helper function to get drugs by status
-export const getDrugsByStatus = (status: DrugType["status"]) => {
-  return mockDrugsData.filter((drug) => drug.status === status);
-};
-
-// Helper function to search drugs by name
-export const searchDrugsByName = (searchTerm: string) => {
-  return mockDrugsData.filter((drug) =>
-    drug.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-};
-
-// Helper function to get drugs by category
-export const getDrugsByCategory = (category: string) => {
-  return mockDrugsData.filter((drug) =>
-    drug.category.toLowerCase().includes(category.toLowerCase())
-  );
-};

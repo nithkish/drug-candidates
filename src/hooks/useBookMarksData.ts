@@ -4,6 +4,31 @@ import { mockDrugsData } from "@/constants/drugs-list";
 
 const BOOKMARKS_STORAGE_KEY = "drug-bookmarks";
 
+/**
+ * useBookMarksData
+ *
+ * Custom React hook for managing bookmarked drug candidates.
+ * Handles loading, saving, toggling, and clearing bookmarks using localStorage.
+ * Provides utilities for checking bookmark status and retrieving the list/count of bookmarks.
+ *
+ * Accessibility & Usability:
+ * - Persists bookmarks in localStorage for a consistent user experience.
+ * - Returns loading state for UI feedback.
+ *
+ * Returns:
+ *   {
+ *     bookmarks: string[]; // Array of bookmarked drug IDs
+ *     isLoading: boolean; // Loading state for bookmarks
+ *     bookmarksList: DrugType[]; // List of bookmarked drug objects
+ *     toggleBookmark: (id: string) => void; // Add/remove a bookmark
+ *     clearAllBookmarks: () => void; // Remove all bookmarks
+ *     isBookmarked: (drugId: string) => boolean; // Check if a drug is bookmarked
+ *     getBookmarkCount: () => number; // Get total number of bookmarks
+ *   }
+ *
+ * Example usage:
+ *   const { bookmarks, toggleBookmark, isBookmarked } = useBookMarksData();
+ */
 interface UseBookmarksDataReturn {
   // State
   bookmarks: string[];
