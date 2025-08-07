@@ -1,6 +1,7 @@
+"use-client";
 import DrugsList from "@/sections/drugs-list/DrugsList";
 import LandingPage from "@/sections/landing-page/LandingPage";
-import { currentUser } from "@clerk/nextjs/server";
+import { useAuth } from "@clerk/nextjs";
 
 /**
  * Home Page
@@ -14,6 +15,6 @@ import { currentUser } from "@clerk/nextjs/server";
  * @returns {JSX.Element} The home page content based on authentication state.
  */
 export default async function Home() {
-  const user = await currentUser();
-  return user ? <DrugsList /> : <LandingPage />;
+  const { isSignedIn } = useAuth();
+  return isSignedIn ? <DrugsList /> : <LandingPage />;
 }
