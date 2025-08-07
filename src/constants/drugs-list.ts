@@ -50,6 +50,24 @@ export const mockDrugsData: DrugType[] = [
     ],
   },
   {
+    id: "13",
+    name: "Rivaroxaban",
+    status: "in_dev",
+    description:
+      "Direct oral anticoagulant currently in clinical trials for extended use in preventing blood clots. Works by blocking a protein called factor Xa, which is involved in blood clotting.",
+    category: "Anticoagulant",
+    manufacturer: "Bayer Pharmaceuticals",
+    createdAt: "2024-02-03T11:20:00Z",
+    updatedAt: "2024-02-03T11:20:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2024-02-03T11:20:00Z",
+        note: "Phase III clinical trials",
+      },
+    ],
+  },
+  {
     id: "2",
     name: "Ibuprofen",
     status: "approved",
@@ -74,6 +92,29 @@ export const mockDrugsData: DrugType[] = [
         status: "approved",
         date: "2024-01-16T14:20:00Z",
         note: "Approved for market",
+      },
+    ],
+  },
+  {
+    id: "11",
+    name: "Candesartan",
+    status: "pending",
+    description:
+      "Angiotensin II receptor blocker (ARB) under review for treatment of high blood pressure and heart failure. Works by blocking the action of angiotensin II, a substance that narrows blood vessels.",
+    category: "ARB",
+    manufacturer: "Takeda Pharmaceutical",
+    createdAt: "2024-02-01T09:30:00Z",
+    updatedAt: "2024-02-01T09:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-12-01T08:00:00Z",
+        note: "ARB development phase",
+      },
+      {
+        status: "pending",
+        date: "2024-02-01T09:30:00Z",
+        note: "Under regulatory review",
       },
     ],
   },
@@ -106,30 +147,30 @@ export const mockDrugsData: DrugType[] = [
     ],
   },
   {
-    id: "4",
-    name: "Metformin",
-    status: "approved",
+    id: "16",
+    name: "Dupilumab",
+    status: "rejected",
     description:
-      "First-line medication for the treatment of type 2 diabetes, particularly in people who are overweight. It works by decreasing glucose production by the liver and increasing insulin sensitivity.",
-    category: "Antidiabetic",
-    manufacturer: "Bristol-Myers Squibb",
-    createdAt: "2024-01-18T11:45:00Z",
-    updatedAt: "2024-01-18T11:45:00Z",
+      "Monoclonal antibody that was rejected for treatment of severe asthma due to safety concerns. Works by blocking interleukin-4 and interleukin-13, proteins that cause inflammation.",
+    category: "Monoclonal Antibody",
+    manufacturer: "Regeneron Pharmaceuticals",
+    createdAt: "2024-01-10T08:20:00Z",
+    updatedAt: "2024-01-25T17:30:00Z",
     statusHistory: [
       {
         status: "in_dev",
-        date: "2023-07-10T09:15:00Z",
-        note: "Diabetes research phase",
+        date: "2023-08-01T10:00:00Z",
+        note: "Asthma research phase",
       },
       {
         status: "pending",
-        date: "2023-11-20T16:45:00Z",
-        note: "Efficacy studies completed",
+        date: "2023-12-15T14:30:00Z",
+        note: "Safety review initiated",
       },
       {
-        status: "approved",
-        date: "2024-01-18T11:45:00Z",
-        note: "Approved for diabetes management",
+        status: "rejected",
+        date: "2024-01-25T17:30:00Z",
+        note: "Rejected due to safety concerns",
       },
     ],
   },
@@ -186,6 +227,34 @@ export const mockDrugsData: DrugType[] = [
         status: "approved",
         date: "2024-01-20T13:20:00Z",
         note: "Approved for acid reflux treatment",
+      },
+    ],
+  },
+  {
+    id: "18",
+    name: "Rofecoxib",
+    status: "rejected",
+    description:
+      "COX-2 inhibitor that was rejected due to increased risk of heart attack and stroke. Was previously used to treat pain and inflammation in conditions like osteoarthritis.",
+    category: "COX-2 Inhibitor",
+    manufacturer: "Merck & Co.",
+    createdAt: "2023-06-15T12:00:00Z",
+    updatedAt: "2023-12-01T09:30:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-03-01T08:30:00Z",
+        note: "COX-2 research",
+      },
+      {
+        status: "pending",
+        date: "2023-08-15T11:45:00Z",
+        note: "Cardiovascular safety review",
+      },
+      {
+        status: "rejected",
+        date: "2023-12-01T09:30:00Z",
+        note: "Rejected due to cardiovascular risks",
       },
     ],
   },
@@ -302,29 +371,6 @@ export const mockDrugsData: DrugType[] = [
     ],
   },
   {
-    id: "11",
-    name: "Candesartan",
-    status: "pending",
-    description:
-      "Angiotensin II receptor blocker (ARB) under review for treatment of high blood pressure and heart failure. Works by blocking the action of angiotensin II, a substance that narrows blood vessels.",
-    category: "ARB",
-    manufacturer: "Takeda Pharmaceutical",
-    createdAt: "2024-02-01T09:30:00Z",
-    updatedAt: "2024-02-01T09:30:00Z",
-    statusHistory: [
-      {
-        status: "in_dev",
-        date: "2023-12-01T08:00:00Z",
-        note: "ARB development phase",
-      },
-      {
-        status: "pending",
-        date: "2024-02-01T09:30:00Z",
-        note: "Under regulatory review",
-      },
-    ],
-  },
-  {
     id: "12",
     name: "Empagliflozin",
     status: "pending",
@@ -344,24 +390,6 @@ export const mockDrugsData: DrugType[] = [
         status: "pending",
         date: "2024-02-02T14:15:00Z",
         note: "Diabetes and heart failure review",
-      },
-    ],
-  },
-  {
-    id: "13",
-    name: "Rivaroxaban",
-    status: "in_dev",
-    description:
-      "Direct oral anticoagulant currently in clinical trials for extended use in preventing blood clots. Works by blocking a protein called factor Xa, which is involved in blood clotting.",
-    category: "Anticoagulant",
-    manufacturer: "Bayer Pharmaceuticals",
-    createdAt: "2024-02-03T11:20:00Z",
-    updatedAt: "2024-02-03T11:20:00Z",
-    statusHistory: [
-      {
-        status: "in_dev",
-        date: "2024-02-03T11:20:00Z",
-        note: "Phase III clinical trials",
       },
     ],
   },
@@ -402,34 +430,6 @@ export const mockDrugsData: DrugType[] = [
     ],
   },
   {
-    id: "16",
-    name: "Dupilumab",
-    status: "rejected",
-    description:
-      "Monoclonal antibody that was rejected for treatment of severe asthma due to safety concerns. Works by blocking interleukin-4 and interleukin-13, proteins that cause inflammation.",
-    category: "Monoclonal Antibody",
-    manufacturer: "Regeneron Pharmaceuticals",
-    createdAt: "2024-01-10T08:20:00Z",
-    updatedAt: "2024-01-25T17:30:00Z",
-    statusHistory: [
-      {
-        status: "in_dev",
-        date: "2023-08-01T10:00:00Z",
-        note: "Asthma research phase",
-      },
-      {
-        status: "pending",
-        date: "2023-12-15T14:30:00Z",
-        note: "Safety review initiated",
-      },
-      {
-        status: "rejected",
-        date: "2024-01-25T17:30:00Z",
-        note: "Rejected due to safety concerns",
-      },
-    ],
-  },
-  {
     id: "17",
     name: "Varenicline",
     status: "rejected",
@@ -457,34 +457,7 @@ export const mockDrugsData: DrugType[] = [
       },
     ],
   },
-  {
-    id: "18",
-    name: "Rofecoxib",
-    status: "rejected",
-    description:
-      "COX-2 inhibitor that was rejected due to increased risk of heart attack and stroke. Was previously used to treat pain and inflammation in conditions like osteoarthritis.",
-    category: "COX-2 Inhibitor",
-    manufacturer: "Merck & Co.",
-    createdAt: "2023-06-15T12:00:00Z",
-    updatedAt: "2023-12-01T09:30:00Z",
-    statusHistory: [
-      {
-        status: "in_dev",
-        date: "2023-03-01T08:30:00Z",
-        note: "COX-2 research",
-      },
-      {
-        status: "pending",
-        date: "2023-08-15T11:45:00Z",
-        note: "Cardiovascular safety review",
-      },
-      {
-        status: "rejected",
-        date: "2023-12-01T09:30:00Z",
-        note: "Rejected due to cardiovascular risks",
-      },
-    ],
-  },
+
   {
     id: "19",
     name: "Vioxx",
@@ -538,6 +511,34 @@ export const mockDrugsData: DrugType[] = [
         status: "rejected",
         date: "2023-10-20T16:20:00Z",
         note: "Rejected due to birth defects",
+      },
+    ],
+  },
+  {
+    id: "4",
+    name: "Metformin",
+    status: "approved",
+    description:
+      "First-line medication for the treatment of type 2 diabetes, particularly in people who are overweight. It works by decreasing glucose production by the liver and increasing insulin sensitivity.",
+    category: "Antidiabetic",
+    manufacturer: "Bristol-Myers Squibb",
+    createdAt: "2024-01-18T11:45:00Z",
+    updatedAt: "2024-01-18T11:45:00Z",
+    statusHistory: [
+      {
+        status: "in_dev",
+        date: "2023-07-10T09:15:00Z",
+        note: "Diabetes research phase",
+      },
+      {
+        status: "pending",
+        date: "2023-11-20T16:45:00Z",
+        note: "Efficacy studies completed",
+      },
+      {
+        status: "approved",
+        date: "2024-01-18T11:45:00Z",
+        note: "Approved for diabetes management",
       },
     ],
   },

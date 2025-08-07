@@ -62,10 +62,7 @@ function StatusCard({
             </dt>
             <dd className="flex items-center gap-2">
               <span className="font-medium">{label}</span>
-              <span
-                className={`${bgColor} rounded-full p-1 text-white`}
-                aria-label={label}
-              >
+              <span className={`${bgColor} rounded-full p-1 text-white`}>
                 {icon}
               </span>
             </dd>

@@ -48,7 +48,7 @@ function HeaderSection({ name, id, description }: HeaderSectionProps) {
                 variant={"outline"}
                 className={cn(
                   "text-sm border-blue-500 text-blue-500 hover:bg-gray-100 dark:hover:bg-gray-600",
-                  showBookmarked && "dark:bg-slate-800 bg-blue-50"
+                  showBookmarked && "dark:bg-slate-800 bg-gray-50"
                 )}
                 onClick={() => toggleBookmark(id)}
                 aria-label={
