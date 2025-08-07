@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { SignInButton } from "@clerk/nextjs";
+import { useTheme } from "next-themes";
+import { dark } from "@clerk/themes";
 
 /**
  * LandingPage
@@ -18,6 +22,7 @@ import { Separator } from "@/components/ui/separator";
  * @returns {JSX.Element} The landing page UI.
  */
 export default function LandingPage() {
+  const { resolvedTheme } = useTheme();
   return (
     <section
       className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-12 bg-background"
@@ -56,7 +61,19 @@ export default function LandingPage() {
             designed for scientists and innovators.
           </p>
           <p className="max-w-xl text-center text-lg text-muted-foreground">
-            <span aria-live="polite">Sign In to get started.</span>
+            <SignInButton
+              mode="modal"
+              appearance={{
+                baseTheme: resolvedTheme === "dark" ? dark : undefined,
+              }}
+            >
+              <Button
+                className="bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-gray-700 dark:hover:bg-gray-600"
+                aria-label="Sign in"
+              >
+                Sign In to Start Exploring
+              </Button>
+            </SignInButton>
           </p>
         </CardContent>
       </Card>

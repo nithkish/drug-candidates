@@ -57,7 +57,7 @@ function DrugCard({ drug }: DrugCardProps) {
       tabIndex={0}
       role="button"
       aria-label={`View details for ${drug.name}`}
-      className="flex h-[23vh] flex-col justify-around bg-slate-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      className="flex h-[23vh] flex-col justify-around bg-blue-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
     >
       <CardHeader>
         <CardTitle className="text-lg font-bold">{drug.name}</CardTitle>

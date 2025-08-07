@@ -122,7 +122,7 @@ export const FilterButton = ({
           {options.map((option) => (
             <div key={option.id} className="flex items-center space-x-2">
               <Checkbox
-                className="data-[state=checked]:bg-blue-600 data-[state=checked]:dark:bg-slate-100"
+                className="data-[state=checked]:bg-blue-600 data-[state=checked]:dark:bg-gray-700"
                 id={option.id}
                 checked={selectedFilters.includes(option.id)}
                 onCheckedChange={() => handleFilterToggle(option.id)}

@@ -47,7 +47,7 @@ function NavButtons() {
       <Button
         variant={"outline"}
         key={button.name}
-        className="flex items-center gap-2 bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-slate-900 dark:hover:bg-slate-800"
+        className="flex items-center gap-2 bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-gray-700 dark:hover:bg-gray-600"
         asChild
         aria-label={button.ariaLabel}
       >
@@ -82,7 +82,7 @@ function NavButtons() {
           }}
         >
           <Button
-            className="bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-slate-900 dark:hover:bg-slate-800"
+            className="bg-blue-600 text-gray-100 font-semibold hover:text-gray-50 hover:bg-blue-500 dark:bg-gray-700 dark:hover:bg-gray-600"
             aria-label="Sign in"
           >
             Sign in

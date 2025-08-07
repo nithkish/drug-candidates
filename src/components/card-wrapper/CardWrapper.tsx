@@ -45,7 +45,7 @@ export const CardWrapper: React.FC<CardWrapperProps> = ({
 }) => (
   <Card
     className={cn(
-      "w-full shadow-lg bg-slate-50 dark:bg-slate-900 dark:text-gray-200",
+      "w-full shadow-lg bg-blue-50 dark:bg-slate-900 dark:text-gray-200",
       className
     )}
   >
