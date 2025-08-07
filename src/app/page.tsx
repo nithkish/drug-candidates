@@ -14,7 +14,7 @@ import { useAuth } from "@clerk/nextjs";
  *
  * @returns {JSX.Element} The home page content based on authentication state.
  */
-export default async function Home() {
+export default function Home() {
   const { isSignedIn } = useAuth();
   return isSignedIn ? <DrugsList /> : <LandingPage />;
 }
