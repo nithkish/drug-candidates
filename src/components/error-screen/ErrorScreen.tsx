@@ -106,12 +106,12 @@ export const ErrorScreen = ({
       {/* Actions */}
       {action && (
         <div className="flex flex-col sm:flex-row gap-3">
-          {action && (
-            <Button onClick={action.onClick} className="min-w-[140px]">
-              {action.icon && <span className="mr-2">{action.icon}</span>}
-              {action.label}
-            </Button>
-          )}
+          (
+          <Button onClick={action.onClick} className="min-w-[140px]">
+            {action.icon && <span className="mr-2">{action.icon}</span>}
+            {action.label}
+          </Button>
+          )
         </div>
       )}
     </div>

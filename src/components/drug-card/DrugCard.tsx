@@ -35,11 +35,11 @@ interface DrugCardProps {
 function DrugCard({ drug }: DrugCardProps) {
   const { getDrugStatusConfig } = useDrugStatusTypeMap();
 
-  const drugStatusConfig = getDrugStatusConfig(drug.status);
+  const drugStatusConfig = getDrugStatusConfig(drug?.status);
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/drug/${drug.id}`);
+    router.push(`/drug/${drug?.id}`);
   };
 
   // Keyboard accessibility for card
@@ -56,25 +56,26 @@ function DrugCard({ drug }: DrugCardProps) {
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
-      aria-label={`View details for ${drug.name}`}
+      aria-label={`View details for ${drug?.name}`}
       className="flex h-[23vh] flex-col justify-around bg-blue-50 dark:bg-slate-900 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      data-testid="drug-card"
     >
       <CardHeader>
-        <CardTitle className="text-lg font-bold">{drug.name}</CardTitle>
-        <CardDescription>{drug.description}</CardDescription>
+        <CardTitle className="text-lg font-bold">{drug?.name}</CardTitle>
+        <CardDescription>{drug?.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex items-center justify-between">
         <p>
           <span className="font-semibold">Status:</span>{" "}
-          <span aria-label={`Status is ${drugStatusConfig.label}`}>
-            {drugStatusConfig.label}
+          <span aria-label={`Status is ${drugStatusConfig?.label}`}>
+            {drugStatusConfig?.label}
           </span>
         </p>
         <div
-          className={`${drugStatusConfig.bgColor} text-white rounded-full p-1`}
+          className={`${drugStatusConfig?.bgColor} text-white rounded-full p-1`}
           aria-hidden="true"
         >
-          {drugStatusConfig.icon}
+          {drugStatusConfig?.icon}
         </div>
       </CardContent>
     </Card>
