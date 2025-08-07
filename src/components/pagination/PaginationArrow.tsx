@@ -1,3 +1,4 @@
+import { PaginationArrowProps } from "@/types/pagination";
 import { Button } from "../ui/button";
 
 /**

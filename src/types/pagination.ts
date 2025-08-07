@@ -3,7 +3,7 @@
  *
  * @property pageCount - The total number of pages available.
  */
-interface PaginationProps {
+export interface PaginationProps {
   pageCount: number;
 }
 
@@ -14,7 +14,7 @@ interface PaginationProps {
  * @property onClick - A callback function triggered when the arrow is clicked.
  * @property isDisabled - A boolean indicating whether the arrow is disabled.
  */
-interface PaginationArrowProps {
+export interface PaginationArrowProps {
   direction: "left" | "right";
   onClick: () => void;
   isDisabled: boolean;

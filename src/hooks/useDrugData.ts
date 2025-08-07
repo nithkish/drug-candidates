@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useMemo } from "react";
 import { DrugType } from "@/types/drug";
 import { mockDrugsData } from "@/constants/drugs-list";
 import { useGlobalContext } from "@/providers/GlobalContextProvider";

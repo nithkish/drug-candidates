@@ -1,13 +1,12 @@
 "use client";
 import { FilterButton } from "@/components/filter-button/FilterButton";
 // import ErrorScreen from "@/components/error-screen/ErrorScreen";
-import ListSkeleton from "@/components/list-skeleton/ListSkeleton";
 import PaginationComponent from "@/components/pagination/Pagination";
 import { SearchBar } from "@/components/search-bar/SearchBar";
 import { useGlobalContext } from "@/providers/GlobalContextProvider";
 import { filterOptions } from "@/constants/filter";
 import DrugCard from "@/components/drug-card/DrugCard";
-import { DrugType, DrugStatusType } from "@/types/drug";
+import { DrugStatusType } from "@/types/drug";
 import { ITEMS_PER_PAGE } from "@/constants/api";
 import { useDrugData } from "@/hooks/useDrugData";
 import { NoResultsScreen } from "@/components/error-screen/DefaultErrorScreen";

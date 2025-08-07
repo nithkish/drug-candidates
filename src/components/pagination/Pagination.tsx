@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/pagination";
 import { PaginationArrow } from "./PaginationArrow";
 import { useGlobalContext } from "@/providers/GlobalContextProvider";
+import { PaginationProps } from "@/types/pagination";
 
 /**
  * PaginationComponent
@@ -23,7 +24,7 @@ import { useGlobalContext } from "@/providers/GlobalContextProvider";
  *
  * @returns {JSX.Element} The rendered pagination component.
  */
-function PaginationComponent({ pageCount }: { pageCount: number }) {
+function PaginationComponent({ pageCount }: PaginationProps) {
   const { currentPage, setCurrentPage } = useGlobalContext();
 
   return (
