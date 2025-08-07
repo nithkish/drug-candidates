@@ -39,7 +39,6 @@ function NavBar() {
                 height={100}
                 alt="Drug Discovery platform logo"
                 style={{ filter: "hue-rotate(22deg)" }}
-                priority
               />
             </Link>
           </div>

@@ -1,19 +1,13 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { FilterButton } from "@/components/filter-button/FilterButton";
-import { FilterOption } from "@/types/filter";
-
-const mockOptions: FilterOption[] = [
-  { id: "approved", label: "Approved" },
-  { id: "pending", label: "Pending" },
-  { id: "rejected", label: "Rejected" },
-];
+import { mockFilterOptions } from "../../__mockdata__/filter";
 
 describe("FilterButton", () => {
   it("renders with default placeholder", () => {
     render(
       <FilterButton
-        options={mockOptions}
+        options={mockFilterOptions}
         selectedFilters={[]}
         onFilterChange={jest.fn()}
       />
@@ -28,7 +22,7 @@ describe("FilterButton", () => {
   it("displays selected filter count", () => {
     render(
       <FilterButton
-        options={mockOptions}
+        options={mockFilterOptions}
         selectedFilters={["approved"]}
         onFilterChange={jest.fn()}
       />
@@ -43,7 +37,7 @@ describe("FilterButton", () => {
   it("opens popover and shows options", async () => {
     render(
       <FilterButton
-        options={mockOptions}
+        options={mockFilterOptions}
         selectedFilters={[]}
         onFilterChange={jest.fn()}
       />
@@ -65,7 +59,7 @@ describe("FilterButton", () => {
 
     render(
       <FilterButton
-        options={mockOptions}
+        options={mockFilterOptions}
         selectedFilters={[]}
         onFilterChange={onFilterChange}
       />
@@ -86,7 +80,7 @@ describe("FilterButton", () => {
 
     render(
       <FilterButton
-        options={mockOptions}
+        options={mockFilterOptions}
         selectedFilters={["approved"]}
         onFilterChange={onFilterChange}
       />
@@ -105,7 +99,7 @@ describe("FilterButton", () => {
 
     render(
       <FilterButton
-        options={mockOptions}
+        options={mockFilterOptions}
         selectedFilters={["approved", "pending"]}
         onFilterChange={onFilterChange}
       />

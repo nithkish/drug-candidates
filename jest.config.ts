@@ -59,9 +59,9 @@ const config: Config = {
   // errorOnDeprecated: false,
 
   // The default configuration for fake timers
-  // fakeTimers: {
-  //   "enableGlobally": false
-  // },
+  fakeTimers: {
+    enableGlobally: false,
+  },
 
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
@@ -87,6 +87,7 @@ const config: Config = {
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
     "^@/providers/(.*)$": "<rootDir>/src/providers/$1",
     "^@/hooks/(.*)$": "<rootDir>/src/hooks/$1",
+    "^@/sections/(.*)$": "<rootDir>/src/sections/$1",
   },
 
   // An array of file extensions your modules use

@@ -83,8 +83,8 @@ export default function DrugsList() {
           className="px-5 pb-3 md:p-3 md:px-16 md:py-2 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           aria-label="Drug candidates"
         >
-          {paginatedDrugs.map((item) => (
-            <li key={item.id}>
+          {paginatedDrugs.map((item, index) => (
+            <li key={index}>
               <DrugCard drug={item} />
             </li>
           ))}

@@ -127,7 +127,7 @@ This structure ensures a clean separation of concerns, making the project easy t
 
 ### `__tests__/` Directory
 
-- Unit tests and mock data for the application.
+- Unit tests and mock data for the application. Unit tests for components, hooks, section, helpers directory.
 
 ## Getting Started
 
@@ -298,4 +298,4 @@ npm run test
 4. Add export/share features for bookmarked drugs.
 5. Add more detailed analytics and visualizations.
 6. Migrate to a more robust state management solution (Redux, Zustand) if needed.
-7. Add internationalization
+7. Add internationalization and imporve Text Label management.
