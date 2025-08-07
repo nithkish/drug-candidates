@@ -1,4 +1,3 @@
-"use-client";
 import DrugsList from "@/sections/drugs-list/DrugsList";
 import LandingPage from "@/sections/landing-page/LandingPage";
 import { currentUser } from "@clerk/nextjs/server";
