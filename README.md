@@ -234,7 +234,7 @@ npm run test
 
 ![Sign out](<docs/screenshots/Screenshot 2025-08-07 at 03.18.45.png>)
 
-- **Drug Browsing:** View a list of drug candidates with names, categories, and status.
+- **Drug Browsing:** View a list of drug candidates with names, description, and status.
 
 ![Home](<docs/screenshots/Screenshot 2025-08-07 at 03.17.30.png>)
 
