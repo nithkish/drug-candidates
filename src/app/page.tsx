@@ -1,4 +1,5 @@
 "use client";
+import ListSkeleton from "@/components/list-skeleton/ListSkeleton";
 import DrugsList from "@/sections/drugs-list/DrugsList";
 import LandingPage from "@/sections/landing-page/LandingPage";
 import { useAuth } from "@clerk/nextjs";
@@ -15,6 +16,8 @@ import { useAuth } from "@clerk/nextjs";
  * @returns {JSX.Element} The home page content based on authentication state.
  */
 export default function Home() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded } = useAuth();
+
+  if (!isLoaded) return <ListSkeleton />; // Wait for auth state to load
   return isSignedIn ? <DrugsList /> : <LandingPage />;
 }
