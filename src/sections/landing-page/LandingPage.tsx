@@ -41,6 +41,7 @@ export default function LandingPage() {
             height={200}
             className="rounded-xl transform rotate-90"
             style={{ filter: "hue-rotate(22deg)" }}
+            priority
           />
           <h1
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold"

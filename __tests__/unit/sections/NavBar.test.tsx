@@ -1,13 +1,16 @@
-import React from "react";
+import React, { ClassAttributes, ImgHTMLAttributes } from "react";
 import { render, screen } from "@testing-library/react";
 import NavBar from "@/sections/nav-bar/NavBar";
 
 // Mock next/image to render a simple img element
-jest.mock("next/image", () => (props: any) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { src, alt, ...rest } = props;
-  return <img src={src} alt={alt} {...rest} />;
-});
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: (
+    props: JSX.IntrinsicAttributes &
+      ClassAttributes<HTMLImageElement> &
+      ImgHTMLAttributes<HTMLImageElement>
+  ) => <img {...props} />,
+}));
 
 // Mock NavButtons component
 jest.mock("@/components/nav-buttons/NavButtons", () => () => (
